@@ -4,6 +4,7 @@ import hu.deckofcards.game.entity.Card;
 import hu.deckofcards.game.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -35,9 +36,9 @@ public class GameController {
     }
 
     @RequestMapping("/shuffleDeck")
-    public String shuffleDeck(/*need param*/) {
-        List<Card> cardList = gameService.shuffleDeck(1L);
+    public String shuffleDeck(@RequestParam("deckId") long deckId) { // if not exists param throw error
+        List<Card> cardList = gameService.shuffleDeck(deckId);
 
-        return String.format("Deck shuffled. Shuffled list: %s", cardList.stream().map(Object::toString).collect(Collectors.joining("<br/>")));
+        return String.format("Deck shuffled. Shuffled list:<br/> %s", cardList.stream().map(Object::toString).collect(Collectors.joining("<br/>")));
     }
 }

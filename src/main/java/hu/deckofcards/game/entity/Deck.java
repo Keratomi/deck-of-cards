@@ -10,7 +10,7 @@ public class Deck {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    @OneToMany
+    @ManyToMany
     private List<Card> cardsInDeck;
 
     private Deck(List<Card> cardsInDeck) {
