@@ -1,16 +1,13 @@
-package hu.deckofcards.game.unit;
+package hu.deckofcards.game.unit.service;
 
 import hu.deckofcards.game.entity.Game;
 import hu.deckofcards.game.repository.GameRepository;
 import hu.deckofcards.game.service.GameService;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.test.util.ReflectionTestUtils;
 
