@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 @Entity
 public class Deck {
@@ -38,6 +40,10 @@ public class Deck {
             shuffled.add(this.cardsInDeck.remove(randomCard));
         }
         this.cardsInDeck = shuffled;
+    }
+
+    public List<Card> getCards(int cardCount) {
+        return IntStream.rangeClosed(1, Math.min(cardCount, this.cardsInDeck.size() - 1)).mapToObj(this.cardsInDeck::remove).collect(Collectors.toList());
     }
 
     Deck() {
