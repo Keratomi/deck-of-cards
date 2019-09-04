@@ -14,6 +14,6 @@ A Basic Deck of Cards Game
 * /getAListOfCardsForPlayer?playerId={id} - Show the list of dealed cards for the given existing player 
 
 ##### Todo:
-* Save entity if necessary
+* Deletions
 * Tests (unit and integration)
 * Expected functionality (remove, card counts, etc.)
