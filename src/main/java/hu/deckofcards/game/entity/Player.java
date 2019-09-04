@@ -32,6 +32,10 @@ public class Player {
         this.cardsForPlayer.addAll(cardsFromDeck);
     }
 
+    public Long getId() {
+        return id;
+    }
+
     Player() {
     }
 }

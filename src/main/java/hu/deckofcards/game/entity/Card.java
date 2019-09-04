@@ -25,6 +25,10 @@ public class Card {
         return card;
     }
 
+    public int getCardExactValue() {
+        return cardValue.getValue();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,8 +46,9 @@ public class Card {
     @Override
     public String toString() {
         return "Card{" +
-                "cardType=" + cardType +
-                ", cardValue=" + cardValue +
-                '}';
+                cardType +
+                "::" +
+                cardValue +
+                "}";
     }
 }

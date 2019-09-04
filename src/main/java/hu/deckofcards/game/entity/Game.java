@@ -6,10 +6,9 @@ import java.util.List;
 
 @Entity
 public class Game {
-    private static final String GAME_NAME = "Game_";
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany
     private List<Deck> decksInGame;
@@ -40,7 +39,7 @@ public class Game {
         List<Card> returnCards = new ArrayList<>();
         int remainingCardCount = cardCount;
         for (Deck deck : this.decksInGame) {
-             returnCards.addAll(deck.getCards(remainingCardCount));
+            returnCards.addAll(deck.getCards(remainingCardCount));
             if (returnCards.size() == cardCount) {
                 return returnCards;
             }

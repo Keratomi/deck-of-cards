@@ -11,10 +11,10 @@ import hu.deckofcards.game.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class GameService {
@@ -31,43 +31,43 @@ public class GameService {
     private PlayerRepository playerRepository;
 
 
-
     public List<Long> createGame() {
         gameRepository.save(new Game());
-        return getAllGameIds();
+        List<Game> allGames = (List) gameRepository.findAll();
+        return allGames.stream().map(Game::getId).collect(Collectors.toList());
     }
 
     public List<Long> createDeck() {
-        Iterable<Card> allCards = cardRepository.findAll();
-        List<Card> cardList = new ArrayList<>();
-        allCards.forEach(cardList::add);
+        List<Card> cardList = (List) cardRepository.findAll();
         Deck deck = Deck.createDeckWithCards(cardList);
         deckRepository.save(deck);
 
-
-        Iterable<Deck> allDecks = deckRepository.findAll();
-        List<Long> deckIds = new ArrayList<>();
-        allDecks.forEach(oneOfAllDeck -> deckIds.add(oneOfAllDeck.getId()));
-        return deckIds;
+        List<Deck> allDecks = (List) deckRepository.findAll();
+        return allDecks.stream().map(Deck::getId).collect(Collectors.toList());
     }
 
     public List<Card> shuffleDeck(Long deckId) {
         Optional<Deck> deckOptional = deckRepository.findById(deckId);
-        deckOptional.ifPresent(Deck::shuffleDeck);
 
-        return deckOptional.orElse(null).getCardsInDeck(); // nullpointer
+        if (deckOptional.isPresent()) {
+            deckOptional.get().shuffleDeck();
+            deckRepository.save(deckOptional.get());
+
+            return deckOptional.get().getCardsInDeck();
+        }
+        return null;
     }
 
-    private List<Long> getAllGameIds() {
-        Iterable<Game> allGames = gameRepository.findAll();
-        List<Long> gameIds = new ArrayList<>();
-        allGames.forEach(game -> gameIds.add(game.getId()));
-        return gameIds;
-    }
-
-    public void addPlayerToGame(Long gameId) {
+    public Long addPlayerToGame(Long gameId) {
         Optional<Game> gameOptional = gameRepository.findById(gameId);
-        gameOptional.ifPresent(game -> game.addPlayerToGame(playerRepository.save(new Player(game))));
+        if (gameOptional.isPresent()) {
+            Player createdPlyer = new Player(gameOptional.get());
+            gameOptional.get().addPlayerToGame(playerRepository.save(createdPlyer));
+
+            return createdPlyer.getId();
+        }
+
+        return null;
     }
 
     public void addDeckToGame(Long gameId, Long deckId) {
