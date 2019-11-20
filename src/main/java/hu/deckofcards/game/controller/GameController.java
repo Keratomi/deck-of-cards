@@ -19,54 +19,62 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping("/")
+    @GetMapping
     public String welcomeInGame() {
         return Display.WELCOME.fillDisplay();
     }
 
-    @RequestMapping(value = "/createGame", method = RequestMethod.GET)
+    @RequestMapping("/createGame")
+    @GetMapping
     public String createGame() {
         List<Long> gameIds = gameService.createGame();
 
         return Display.GAME.fillDisplay(gameIds.toArray(Long[]::new));
     }
 
-    @RequestMapping(path = "/createDeck", method = RequestMethod.GET)
+    @RequestMapping("/createDeck")
+    @GetMapping
     public String createDeck() {
         List<Long> createdDeckIds = gameService.createDeck();
 
         return Display.DECK.fillDisplay(createdDeckIds.toArray(Long[]::new));
     }
 
-    @RequestMapping(path = "/shuffleDeck", method = RequestMethod.GET)
+    @RequestMapping("/shuffleDeck")
+    @GetMapping
     public String shuffleDeck(@RequestParam("deckId") long deckId) {
         List<Card> cardList = gameService.shuffleDeck(deckId);
 
         return String.format("Deck shuffled. Shuffled list:<br/> %s", cardList.stream().map(Object::toString).collect(Collectors.joining("<br/>")));
     }
 
-    @RequestMapping(path = "/addDeckToGame", method = RequestMethod.PUT)
+    @RequestMapping("/addDeckToGame")
+    @PutMapping
     public String addDeckToGame(@RequestParam("gameId") long gameId, @RequestParam("deckId") long deckId) {
         gameService.addDeckToGame(gameId, deckId);
 
         return "Deck added";
     }
 
-    @RequestMapping(path = "/addPlayerToGame", method = RequestMethod.PUT)
+    @RequestMapping("/addPlayerToGame")
+    @PutMapping
     public String addPlayerToGame(@RequestParam("gameId") long gameId) {
         Long createdPlyerId = gameService.addPlayerToGame(gameId);
 
         return Display.PLAYER.fillDisplay(createdPlyerId);
     }
 
-    @RequestMapping(path = "/dealCardToAPlayer", method = RequestMethod.PUT)
+    @RequestMapping("/dealCardToAPlayer")
+    @PutMapping
     public String dealCardToAPlayer(@RequestParam("playerId") long playerId) {
         gameService.dealCardToAPlayer(playerId);
 
         return "Card dealed to a player";
     }
 
-    @RequestMapping(path = "/getAListOfCardsForPlayer", method = RequestMethod.GET)
+    @RequestMapping("/getAListOfCardsForPlayer")
+    @GetMapping
     public String getAListOfCardsForPlayer(@RequestParam("playerId") long playerId) {
         List<Card> aListOfCardsForPlayer = gameService.getAListOfCardsForPlayer(playerId);
 
