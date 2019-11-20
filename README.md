@@ -17,3 +17,6 @@ A Basic Deck of Cards Game
 * Deletions
 * Tests (unit and integration)
 * Expected functionality (remove, card counts, etc.)
+
+##### I would like to test Travis-CI
+* add .travis.yml
