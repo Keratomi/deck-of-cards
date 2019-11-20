@@ -18,4 +18,7 @@ public class CardCreator {
                         .map(cardType -> createCardWithTypeAndValue(cardType, cardValue)))
                 .collect(Collectors.toList());
     }
+
+    private CardCreator() {
+    }
 }

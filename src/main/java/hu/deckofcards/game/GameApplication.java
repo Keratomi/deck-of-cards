@@ -17,6 +17,6 @@ public class GameApplication {
 
     @Bean
     public CommandLineRunner createAndSaveCards(CardRepository cardRepository) {
-        return (args) -> createAListOfCards().forEach(cardRepository::save);
+        return args -> createAListOfCards().forEach(cardRepository::save);
     }
 }

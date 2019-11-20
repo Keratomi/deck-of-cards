@@ -49,6 +49,6 @@ public enum Display {
 
     public String fillDisplay(Object ...displayValues) {
         return HEADER + String.format(ownFillDisplay(displayValues), displayValues);
-    };
+    }
     public abstract String ownFillDisplay(Object... displayValues);
 }

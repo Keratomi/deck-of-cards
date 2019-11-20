@@ -34,9 +34,8 @@ public class Deck {
     public void shuffleDeck() {
         List<Card> shuffled = new ArrayList<>();
 
-        Random random = new Random();
         while (!this.cardsInDeck.isEmpty()) {
-            int randomCard = random.nextInt(this.cardsInDeck.size());
+            int randomCard = new Random().nextInt(this.cardsInDeck.size());
             shuffled.add(this.cardsInDeck.remove(randomCard));
         }
         this.cardsInDeck = shuffled;

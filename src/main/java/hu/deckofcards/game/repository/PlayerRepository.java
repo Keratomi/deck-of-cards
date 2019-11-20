@@ -1,6 +1,5 @@
 package hu.deckofcards.game.repository;
 
-import hu.deckofcards.game.entity.Game;
 import hu.deckofcards.game.entity.Player;
 import org.springframework.data.repository.CrudRepository;
 

@@ -19,9 +19,9 @@ public class CardCreatorTest {
 
         Assertions.assertThat(aListOfCards)
                 .hasSize(52)
-                .contains(createCardWithTypeAndValue(CardType.HEART, CardValue.ACE), Index.atIndex(0))
-                .contains(createCardWithTypeAndValue(CardType.SPADE, CardValue.ACE), Index.atIndex(1))
-                .contains(createCardWithTypeAndValue(CardType.HEART, CardValue._2), Index.atIndex(4))
-                .contains(createCardWithTypeAndValue(CardType.SPADE, CardValue._2), Index.atIndex(5)); // just pick some cards, not all
+                .contains(createCardWithTypeAndValue(CardType.HEART, CardValue.CARD_ACE), Index.atIndex(0))
+                .contains(createCardWithTypeAndValue(CardType.SPADE, CardValue.CARD_ACE), Index.atIndex(1))
+                .contains(createCardWithTypeAndValue(CardType.HEART, CardValue.CARD_2), Index.atIndex(4))
+                .contains(createCardWithTypeAndValue(CardType.SPADE, CardValue.CARD_2), Index.atIndex(5)); // just pick some cards, not all
     }
 }

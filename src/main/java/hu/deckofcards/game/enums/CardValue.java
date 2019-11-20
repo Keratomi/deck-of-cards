@@ -1,19 +1,19 @@
 package hu.deckofcards.game.enums;
 
 public enum CardValue {
-    ACE(1),
-    _2(2),
-    _3(3),
-    _4(4),
-    _5(5),
-    _6(6),
-    _7(7),
-    _8(8),
-    _9(9),
-    _10(10),
-    JACK(11),
-    QUEEN(12),
-    KING(13);
+    CARD_ACE(1),
+    CARD_2(2),
+    CARD_3(3),
+    CARD_4(4),
+    CARD_5(5),
+    CARD_6(6),
+    CARD_7(7),
+    CARD_8(8),
+    CARD_9(9),
+    CARD_10(10),
+    CARD_JACK(11),
+    CARD_QUEEN(12),
+    CARD_KING(13);
 
     private int value;
 

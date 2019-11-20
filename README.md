@@ -1,4 +1,4 @@
-# deck-of-cards [![Build Status](https://travis-ci.org/Keratomi/deck-of-cards.svg?branch=master)](https://travis-ci.org/Keratomi/deck-of-cards)
+# deck-of-cards [![Build Status](https://travis-ci.org/Keratomi/deck-of-cards.svg?branch=master)](https://travis-ci.org/Keratomi/deck-of-cards) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Keratomi_deck-of-cards&metric=alert_status)](https://sonarcloud.io/dashboard?id=Keratomi_deck-of-cards) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Keratomi_deck-of-cards&metric=coverage)](https://sonarcloud.io/dashboard?id=Keratomi_deck-of-cards)
 A Basic Deck of Cards Game
 
 #### Usages:

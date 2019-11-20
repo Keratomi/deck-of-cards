@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static java.util.Collections.emptyList;
+
 @Service
 public class GameService {
     @Autowired
@@ -55,7 +57,7 @@ public class GameService {
 
             return deckOptional.get().getCardsInDeck();
         }
-        return null;
+        return emptyList();
     }
 
     public Long addPlayerToGame(Long gameId) {
@@ -94,6 +96,6 @@ public class GameService {
             return playerOptional.get().getCardsForPlayer();
         }
 
-        return Collections.emptyList();
+        return emptyList();
     }
 }
