@@ -16,8 +16,12 @@ import static hu.deckofcards.game.logic.CardValueCalculator.calculateCardsValue;
 @RestController
 public class GameController {
 
-    @Autowired
     private GameService gameService;
+
+    @Autowired
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     @GetMapping(path = "/")
     public String welcomeInGame() {
