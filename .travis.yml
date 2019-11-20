@@ -17,7 +17,7 @@ addons:
   sonarcloud:
     organization: "keratomi"
     token:
-      secure: "travis encrypt a891222687743b343650b6a94ffdfbc9f9c81424" # encrypted value of your token
+      secure: "LJuP90TKQsBM1jMIVmNKmhcPTuLUOzird5dXM7LtRnmbPC0343Ukzmiv/v643C+ZsYyaO5eX6Rl3PMSYrRRy3r7sQEBZ56ltxYK3Ji2uM7iovXkUmkQmwLGRuUZKOu/v9Zizm7jOjyqds3zncrpxeqIZHs6LaIExCJRNQ8DTF9QpDfpA4N41x36Et8Mkk5rUC+vzXJhtZVEiaJl/p7ur9AoTdmmzKBhelrmiHE6u1Lioke6rOas0iKM2jvZg1BouJUa+JxPfDCrGoMg8acP1sYKlxOtX0Ox9e2xJy1Cf2xxN2ccQZnK1aTJx1SuZH4DrataQu6lufxIC4cGr8jXByJ+vdD/DbhchP7Cb4+OgTvCPqRoDUHJ+/qSgpuKHastLRxuCawA/eKusZ15d6o+l9T0dPN+rBflsR2p+z8XTm1JwQkSUuKZkEfRL+zZDP1SQ2kSXm4bGtEAF/z/lL5vkLprQL2Cp7fRarSP5mcZotML7XLJ6P1QcZtw2lbuZRolZWO2RgeI/a2BFFOk3Z2BDw2jseSBYDJXxDjRNsM283YkCtvRTnbB1QkJEfsjD5SUvlC+NuimMfulZ5/QW8Pg9vgjTlaJ6TDVVfEQz/2v3/rbpf8iZEQcgbDVpIo3V3cvGz/rAC/e9S7/zcf2IW5qKAsfhGGTfuDNpmz8SCVkxJO4=" # encrypted value of your token
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
