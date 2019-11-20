@@ -1,1 +1,14 @@
 language: java
+stages:
+  - install
+  - test
+
+jobs:
+  include:
+    - stage: install
+      script: mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      name: Build code
+
+    - stage: test
+      script: mvnw test -Dmaven.javadoc.skip=true -B -V
+      name: Run tests
