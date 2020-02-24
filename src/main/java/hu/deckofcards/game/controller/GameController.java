@@ -3,8 +3,15 @@ package hu.deckofcards.game.controller;
 import hu.deckofcards.game.entity.Card;
 import hu.deckofcards.game.enums.Display;
 import hu.deckofcards.game.service.GameService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
@@ -16,6 +23,8 @@ import static hu.deckofcards.game.logic.CardValueCalculator.calculateCardsValue;
 @RestController
 public class GameController {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameController.class);
+
     private GameService gameService;
 
     @Autowired
@@ -24,22 +33,24 @@ public class GameController {
     }
 
     @GetMapping(path = "/")
-    public String welcomeInGame() {
-        return Display.WELCOME.fillDisplay();
+    public String welcomeInGame(Model model) {
+        LOGGER.info("Itt vagyok {}", "en");
+        model.addAttribute("bigyo", "Hello");
+        return "index";//Display.WELCOME.fillDisplay();
     }
 
     @GetMapping(path = "/createGame")
     public String createGame() {
         List<Long> gameIds = gameService.createGame();
 
-        return Display.GAME.fillDisplay(gameIds.toArray(Long[]::new));
+        return Display.GAME.fillDisplay(gameIds.toArray(new Long[]{}));
     }
 
     @GetMapping(path = "/createDeck")
     public String createDeck() {
         List<Long> createdDeckIds = gameService.createDeck();
 
-        return Display.DECK.fillDisplay(createdDeckIds.toArray(Long[]::new));
+        return Display.DECK.fillDisplay(createdDeckIds.toArray(new Long[]{}));
     }
 
     @GetMapping(path = "/shuffleDeck")
