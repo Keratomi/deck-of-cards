@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /getAListOfCardsForPlayer:
+    get:
+      operationId: getAListOfCardsForPlayer
+      parameters:
+      - name: playerId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /shuffleDeck:
+    get:
+      operationId: shuffleDeck
+      parameters:
+      - name: deckId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /:
+    get:
+      operationId: welcomeInGame
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /createGame:
+    get:
+      operationId: createGame
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /dealCardToAPlayer:
+    put:
+      operationId: dealCardToAPlayer
+      parameters:
+      - name: playerId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /addDeckToGame:
+    put:
+      operationId: addDeckToGame
+      parameters:
+      - name: gameId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: deckId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /createDeck:
+    get:
+      operationId: createDeck
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+  /addPlayerToGame:
+    put:
+      operationId: addPlayerToGame
+      parameters:
+      - name: gameId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: string
+components: {}
